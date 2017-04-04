@@ -81,8 +81,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 	// set default data set
 	filename = "../../data/nucleon.mhd";
-	connect(horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(onSliderChange(int)));
-	connect(ui->action_Open, SIGNAL(triggered()), this, SLOT(loadFile()));
+	createActions();
 }
 
 MainWindow::~MainWindow()
@@ -98,6 +97,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::createActions()
 {
+	connect(horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(onSliderChange(int)));
+	connect(ui->action_Open, SIGNAL(triggered()), this, SLOT(loadFile()));
 }
 
 bool MainWindow::onSliderChange(int z)
