@@ -52,8 +52,8 @@ private:
 private slots:
 	void loadFile();
 	bool onSliderChange(int);
-	bool on_action_ContourSurface_triggered();
-	bool on_action_MarchingCubes_triggered();
+	bool contourSurface();
+	bool marchingCubes();
 
 private:
 	void createActions();

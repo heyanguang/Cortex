@@ -8,7 +8,7 @@
 #include <vtkImageData.h>
 #include <vtkMarchingCubes.h>
 
-bool MainWindow::on_action_MarchingCubes_triggered()
+bool MainWindow::marchingCubes()
 {
 	//vtkSmartPointer<vtkMetaImageReader> reader =
 	//	vtkSmartPointer<vtkMetaImageReader>::New();

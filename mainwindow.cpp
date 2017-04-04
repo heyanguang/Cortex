@@ -18,11 +18,7 @@
 #include <itkImage.h>
 #include <itkExceptionObject.h>
 
-#include <vtkVertexGlyphFilter.h>
 #include "generatedsurface.h"
-
-#include <vtkDataObject.h>
-#include <vtkDataSetMapper.h>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -99,70 +95,14 @@ void MainWindow::createActions()
 {
 	connect(horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(onSliderChange(int)));
 	connect(ui->action_Open, SIGNAL(triggered()), this, SLOT(loadFile()));
+	connect(ui->action_ContourSurface, SIGNAL(triggered()), this, SLOT(contourSurface()));
+	connect(ui->action_MarchingCubes, SIGNAL(triggered()), this, SLOT(marchingCubes()));
 }
 
 bool MainWindow::onSliderChange(int z)
 {
 	imageviewer->SetSlice(z);
 	renderPreview->update();
-	return true;
-}
-
-bool MainWindow::on_action_ContourSurface_triggered()
-{
-	GeneratedSurface *generatedSurface = GeneratedSurface::New();
-
-	double imageRange[2];
-	localVTKImage->GetVTKImage()->GetScalarRange(imageRange);
-	double contourValue = imageRange[0] + (imageRange[1] - imageRange[0]) / 5.0; //the best seems to be 20% of max, tested on Colin27
-	generatedSurface->SetImageObject(localVTKImage->GetVTKImage());
-	generatedSurface->SetContourValue(contourValue);
-	generatedSurface->SetGaussianSmoothingFlag(true);
-	vtkPolyData *surface = generatedSurface->GenerateSurface();
-	//vtkSmartPointer<vtkPolyDataReader> reader =
-	//	vtkSmartPointer<vtkPolyDataReader>::New();
-	//reader->SetInputDataObject(surface);
-	//reader->Update();
-
-	// Visualize
-	vtkSmartPointer<vtkPolyDataMapper> mapper =
-		vtkSmartPointer<vtkPolyDataMapper>::New();
-	//mapper->SetInputConnection(reader->GetOutputPort());
-	mapper->SetInputData(surface);
-	mapper->ScalarVisibilityOff();
-
-	vtkSmartPointer<vtkActor> actor =
-		vtkSmartPointer<vtkActor>::New();
-	actor->SetMapper(mapper);
-	actor->GetProperty()->SetDiffuseColor(1, 1, 1);
-
-	vtkSmartPointer<vtkRenderer> renderer =
-		vtkSmartPointer<vtkRenderer>::New();
-	vtkSmartPointer<vtkRenderWindow> renderWindow =
-		vtkSmartPointer<vtkRenderWindow>::New();
-	renderWindow->AddRenderer(renderer);
-	vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor =
-		vtkSmartPointer<vtkRenderWindowInteractor>::New();
-	renderWindowInteractor->SetRenderWindow(renderWindow);
-
-	renderer->AddActor(actor);
-	renderer->SetBackground(.2, .3, .4);
-
-	// clean previous renderers and then add the current renderer
-	auto window = widgetCortex->GetRenderWindow();
-	auto collection = window->GetRenderers();
-	auto item = collection->GetNumberOfItems();
-	while (item)
-	{
-		window->RemoveRenderer(collection->GetFirstRenderer());
-		item = collection->GetNumberOfItems();
-	}
-	window->AddRenderer(renderer);
-	window->Render();
-
-	// initialize the interactor
-	interactor->Initialize();
-	interactor->Start();
 	return true;
 }
 
