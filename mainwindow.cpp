@@ -76,7 +76,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	interactor->SetInteractorStyle(style);
 
 	// set default data set
-	filename = "../../data/nucleon.mhd";
+	filename = "../../../data/nucleon.mhd";
 	createActions();
 }
 
@@ -97,6 +97,8 @@ void MainWindow::createActions()
 	connect(ui->action_Open, SIGNAL(triggered()), this, SLOT(loadFile()));
 	connect(ui->action_ContourSurface, SIGNAL(triggered()), this, SLOT(contourSurface()));
 	connect(ui->action_MarchingCubes, SIGNAL(triggered()), this, SLOT(marchingCubes()));
+	connect(ui->action_Exit, SIGNAL(triggered()), this, SLOT(close()));
+	connect(ui->action_About, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 }
 
 bool MainWindow::onSliderChange(int z)
