@@ -76,7 +76,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	interactor->SetInteractorStyle(style);
 
 	// set default data set
-	filename = "../../data/nucleon.mhd";
+	filename = "../../../data/nucleon.mhd";
 	createActions();
 }
 

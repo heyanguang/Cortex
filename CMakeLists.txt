@@ -32,8 +32,8 @@ find_package(ITK REQUIRED)
 include(${ITK_USE_FILE})
 
 #Check TCLAP Library [Templatized C++ Command Line Parser] (1.2.0)
-find_package(TCLAP 1.2.0 REQUIRED)
-include_directories(${TCLAP_INCLUDE_DIRS})
+#find_package(TCLAP 1.2.0 REQUIRED)
+#include_directories(${TCLAP_INCLUDE_DIRS})
 
 link_directories("${VTK_DIR}/lib")
 message(STATUS "VTK_USE_FILE=" ${VTK_USE_FILE})
