@@ -5,6 +5,7 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QPlainTextEdit>
 
 #include <iostream>
 #include <memory>
@@ -48,6 +49,8 @@ private:
 	QVTKWidget                                              *renderPreview;
 	QVTKWidget                                              *widgetCortex;
 	QSlider                                                 *horizontalSlider;
+	QString													curFile;
+	QPlainTextEdit                                          *textEdit;
 
 private slots:
     void open();
@@ -61,6 +64,8 @@ private slots:
 private:
 	void createActions();
 	void loadFile(const QString& filename);
+	bool saveFile(const QString& filename);
+	void setCurrentFile(const QString &filename);
 };
 
 #endif // MAINWINDOW_H

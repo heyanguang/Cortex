@@ -1,4 +1,5 @@
 #include <QGridLayout>
+#include <QTextStream>
 #include <QErrorMessage>
 #include "mainwindow.h"
 
@@ -91,16 +92,6 @@ MainWindow::~MainWindow()
 	imageviewer->Delete();
 }
 
-void MainWindow::createActions()
-{
-	connect(horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(onSliderChange(int)));
-	connect(ui->action_Open, SIGNAL(triggered()), this, SLOT(loadFile()));
-	connect(ui->action_ContourSurface, SIGNAL(triggered()), this, SLOT(contourSurface()));
-	connect(ui->action_MarchingCubes, SIGNAL(triggered()), this, SLOT(marchingCubes()));
-	connect(ui->action_Exit, SIGNAL(triggered()), this, SLOT(close()));
-	connect(ui->action_About, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
-}
-
 void MainWindow::open()
 {
 	// show file dialog. change filename only when the new filename is not empty.
@@ -110,11 +101,70 @@ void MainWindow::open()
 	if (!filename_backup.isEmpty()) loadFile(filename_backup);
 }
 
+bool MainWindow::save()
+{
+	if (curFile.isEmpty()) return saveAs();
+	else                   return saveFile(curFile);
+}
+
+bool MainWindow::saveAs()
+{
+	QFileDialog dialog(this);
+	dialog.setWindowModality(Qt::WindowModal);
+	dialog.setAcceptMode(QFileDialog::AcceptSave);
+	dialog.exec();
+	QStringList files = dialog.selectedFiles();
+
+	if (files.isEmpty()) return false;
+
+	return saveFile(files.at(0));
+}
+
+void MainWindow::about()
+{
+	QMessageBox::about(this, tr("About Cortex"),
+		                     tr("The <b>Cortex</b> is a framework about the segmentation and"
+		                     " analysis of MRI human brain images."));
+}
+
 bool MainWindow::onSliderChange(int z)
 {
 	imageviewer->SetSlice(z);
 	renderPreview->update();
 	return true;
+}
+
+void MainWindow::createActions()
+{
+	this->setWindowIcon(QIcon(":/images/main.ico"));
+
+	ui->action_Open->setIcon(QIcon(":/images/open.png"));
+	ui->action_Open->setShortcuts(QKeySequence::Open);
+	ui->action_Open->setStatusTip(tr("Open an existing file"));
+	connect(ui->action_Open, SIGNAL(triggered()), this, SLOT(open()));
+
+	ui->action_Save->setIcon(QIcon(":/images/save.png"));
+	ui->action_Save->setShortcuts(QKeySequence::Save);
+	ui->action_Save->setStatusTip("Save the document to disk");
+	connect(ui->action_Save, SIGNAL(triggered()), this, SLOT(save()));
+
+	ui->action_SaveAs->setShortcuts(QKeySequence::SaveAs);
+	ui->action_SaveAs->setStatusTip(tr("Save the document under a new name"));
+	connect(ui->action_SaveAs, SIGNAL(triggered()), this, SLOT(saveAs()));
+
+	connect(ui->action_About, SIGNAL(triggered()), this, SLOT(about()));
+
+	connect(ui->action_AboutQt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+
+	connect(ui->action_Exit, SIGNAL(triggered()), this, SLOT(close()));
+
+	connect(horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(onSliderChange(int)));
+
+	connect(ui->action_ContourSurface, SIGNAL(triggered()), this, SLOT(contourSurface()));
+
+	connect(ui->action_MarchingCubes, SIGNAL(triggered()), this, SLOT(marchingCubes()));
+
+	
 }
 
 void MainWindow::loadFile(const QString& filename)
@@ -217,4 +267,41 @@ void MainWindow::loadFile(const QString& filename)
 	}
 }
 
+bool MainWindow::saveFile(const QString &fileName)
+{
+	QFile file(fileName);
+	if (!file.open(QFile::WriteOnly | QFile::Text))
+	{
+		QMessageBox::warning(this, tr("Application"),
+								   tr("Cannot write file %1:\n%2.")
+								   .arg(fileName)
+								   .arg(file.errorString()));
+		return false;
+	}
+
+	QTextStream out(&file);
+#ifndef QT_NO_CURSOR
+	QApplication::setOverrideCursor(Qt::WaitCursor);
+#endif
+	out << textEdit->toPlainText();
+#ifndef QT_NO_CURSOR
+	QApplication::restoreOverrideCursor();
+#endif
+
+	setCurrentFile(fileName);
+	statusBar()->showMessage(tr("File saved"), 2000);
+	return true;
+}
+
+void MainWindow::setCurrentFile(const QString &filename)
+{
+	curFile = filename;
+	textEdit->document()->setModified(false);
+	setWindowModified(false);
+
+	QString shownName = curFile;
+	if (curFile.isEmpty()) shownName = "untitled.txt";
+
+	setWindowFilePath(shownName);
+}
 

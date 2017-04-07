@@ -75,6 +75,8 @@
      <string>&amp;File</string>
     </property>
     <addaction name="action_Open"/>
+    <addaction name="action_Save"/>
+    <addaction name="action_SaveAs"/>
     <addaction name="action_Exit"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
@@ -82,6 +84,7 @@
      <string>&amp;Help</string>
     </property>
     <addaction name="action_About"/>
+    <addaction name="action_AboutQt"/>
    </widget>
    <widget class="QMenu" name="menu_Plugins">
     <property name="title">
@@ -105,7 +108,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_Open">
    <property name="text">
-    <string>&amp;Open</string>
+    <string>&amp;Open...</string>
    </property>
   </action>
   <action name="action_Exit">
@@ -119,14 +122,39 @@
    </property>
   </action>
   <action name="action_ContourSurface">
-    <property name="text">
-      <string>&amp;ContourSurface</string>
-    </property>
+   <property name="text">
+    <string>&amp;ContourSurface</string>
+   </property>
   </action>
   <action name="action_MarchingCubes">
-    <property name="text">
-      <string>&amp;MarchingCubes</string>
-    </property>
+   <property name="text">
+    <string>&amp;MarchingCubes</string>
+   </property>
+  </action>
+  <action name="action_Save">
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+  </action>
+  <action name="actionOp">
+   <property name="text">
+    <string>op</string>
+   </property>
+  </action>
+  <action name="actionW">
+   <property name="text">
+    <string>w</string>
+   </property>
+  </action>
+  <action name="action_SaveAs">
+   <property name="text">
+    <string>&amp;Save As...</string>
+   </property>
+  </action>
+  <action name="action_AboutQt">
+   <property name="text">
+    <string>&amp;About Qt</string>
+   </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

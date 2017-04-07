@@ -77,11 +77,15 @@ file(GLOB ContourSurface_header_files
 	${CMAKE_CURRENT_SOURCE_DIR}/plugins/ContourSurface/*.h
 )
 
-QT5_WRAP_CPP(Project_moc_source_files mainwindow.h)
 file(GLOB Project_ui_files
   ${CMAKE_CURRENT_SOURCE_DIR}/*.ui
 )
+
+QT5_WRAP_CPP(Project_moc_source_files mainwindow.h)
+qt5_add_resources(QRC resources.qrc)
+
 QT5_WRAP_UI(Project_ui_header_files ${Project_ui_files})
+
 source_group(ui FILES ${Project_ui_files} ${Project_ui_header_files})
 source_group(moc FILES ${Project_moc_source_files})
 
@@ -105,7 +109,7 @@ add_executable(${PROJECT_NAME}
 			   ${Project_moc_source_files}
 			   ${ContourSurface_source_files}
 			   ${ContourSurface_header_files}
-	           #${Project_qrc_compiled}
+	           ${QRC}
 )
 
 # Use the Widgets module from Qt 5.
