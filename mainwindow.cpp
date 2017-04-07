@@ -1,6 +1,7 @@
 #include <QGridLayout>
 #include <QTextStream>
 #include <QErrorMessage>
+#include <QSettings>
 #include "mainwindow.h"
 
 #include <vtkRenderer.h>
@@ -78,6 +79,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 	// set default data set
 	filename = "../../../data/nucleon.mhd";
+	readSettings();
 	createActions();
 }
 
@@ -90,6 +92,12 @@ MainWindow::~MainWindow()
 	localVTKImage->Delete();
 	reader->Delete();
 	imageviewer->Delete();
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+	writeSettings();
+	event->accept();
 }
 
 void MainWindow::open()
@@ -132,6 +140,22 @@ bool MainWindow::onSliderChange(int z)
 	imageviewer->SetSlice(z);
 	renderPreview->update();
 	return true;
+}
+
+void MainWindow::readSettings()
+{
+	QSettings settings("QtProject", "Cortex");
+	QPoint pos = settings.value("pos", QPoint(200, 200)).toPoint();
+	QSize size = settings.value("size", QSize(400, 400)).toSize();
+	resize(size);
+	move(pos);
+}
+
+void MainWindow::writeSettings()
+{
+	QSettings settings("QtProject", "Cortex");
+	settings.setValue("pos", pos());
+	settings.setValue("size", size());
 }
 
 void MainWindow::createActions()

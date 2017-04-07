@@ -39,6 +39,9 @@ public:
 	explicit MainWindow(QWidget *parent = 0);
 	~MainWindow();
 
+protected:
+	void closeEvent(QCloseEvent *event);
+
 private:
 	Ui::MainWindow                                          *ui;
 	vtkImageViewer2                                         *imageviewer;
@@ -62,6 +65,8 @@ private slots:
 	bool marchingCubes();
 
 private:
+	void readSettings();
+	void writeSettings();
 	void createActions();
 	void loadFile(const QString& filename);
 	bool saveFile(const QString& filename);
