@@ -50,13 +50,17 @@ private:
 	QSlider                                                 *horizontalSlider;
 
 private slots:
-	void loadFile();
+    void open();
+	bool save();
+	bool saveAs();
+	void about();
 	bool onSliderChange(int);
 	bool contourSurface();
 	bool marchingCubes();
 
 private:
 	void createActions();
+	void loadFile(const QString& filename);
 };
 
 #endif // MAINWINDOW_H

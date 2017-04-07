@@ -101,6 +101,15 @@ void MainWindow::createActions()
 	connect(ui->action_About, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 }
 
+void MainWindow::open()
+{
+	// show file dialog. change filename only when the new filename is not empty.
+	QString filter("Available Filetypes (*.nii.gz *.nii *.vtk)\n");
+	QString filename_backup = filename;
+	filename_backup = QFileDialog::getOpenFileName(this, QString(tr("Open a file")), filename_backup, filter);
+	if (!filename_backup.isEmpty()) loadFile(filename_backup);
+}
+
 bool MainWindow::onSliderChange(int z)
 {
 	imageviewer->SetSlice(z);
@@ -108,116 +117,103 @@ bool MainWindow::onSliderChange(int z)
 	return true;
 }
 
-void MainWindow::loadFile()
+void MainWindow::loadFile(const QString& filename)
 {
-	// show file dialog. change filename only when the new filename is not empty.
-	QString filter("Available Filetypes (*.nii.gz *.nii *.vtk)\n");
-	QString filename_backup = filename;
-	filename_backup = QFileDialog::getOpenFileName(this, QString(tr("Open a file")), filename_backup, filter);
+	// show filename on window title
+	this->setWindowTitle(filename);
 
-	if (!filename_backup.trimmed().isEmpty())
+	if (filename.endsWith("nii") || filename.endsWith("nii.gz"))
 	{
-		filename = filename_backup;
-		// show filename on window title
-		this->setWindowTitle(filename);
-
-		if (filename.endsWith("nii") || filename.endsWith("nii.gz"))
+		reader->SetFileName(filename.toStdString());
+		try
 		{
-			reader->SetFileName(filename.toStdString());
-			try 
-			{
-				reader->ReadImage();
-			}
-			catch (itk::ExceptionObject excp) 
-			{
-				std::cerr << "Error while opening image" << excp.GetDescription() << std::endl;
+			reader->ReadImage();
+		}
+		catch (itk::ExceptionObject excp)
+		{
+			std::cerr << "Error while opening image" << excp.GetDescription() << std::endl;
 
-				QErrorMessage error_message;
-				error_message.showMessage(excp.GetDescription());
-				error_message.exec();
-				return;
-			}
+			QErrorMessage error_message;
+			error_message.showMessage(excp.GetDescription());
+			error_message.exec();
+			return;
+		}
 
-			double range[2];
-			localVTKImage = reader->HarvestReadImage();
-			localVTKImage->GetVTKImage()->GetScalarRange(range);
-			vtkLookupTable *lookupTable = vtkLookupTable::New();
-			lookupTable->SetValueRange(0.0, 1.0);
-			lookupTable->SetSaturationRange(0.0, 0.0);
-			lookupTable->SetRampToLinear();
-			lookupTable->SetRange(range);
-			lookupTable->Build();
-			imageviewer->GetWindowLevel()->SetLookupTable(lookupTable);
-			lookupTable->Delete();
+		double range[2];
+		localVTKImage = reader->HarvestReadImage();
+		localVTKImage->GetVTKImage()->GetScalarRange(range);
+		vtkLookupTable *lookupTable = vtkLookupTable::New();
+		lookupTable->SetValueRange(0.0, 1.0);
+		lookupTable->SetSaturationRange(0.0, 0.0);
+		lookupTable->SetRampToLinear();
+		lookupTable->SetRange(range);
+		lookupTable->Build();
+		imageviewer->GetWindowLevel()->SetLookupTable(lookupTable);
+		lookupTable->Delete();
 
 #if (VTK_MAJOR_VERSION < 6)
-			m_imageviewer->GetWindowLevel()->SetInput(m_localVTKImage->GetVTKImage());
+		m_imageviewer->GetWindowLevel()->SetInput(m_localVTKImage->GetVTKImage());
 #else
-			imageviewer->GetWindowLevel()->SetInputData(localVTKImage->GetVTKImage());
+		imageviewer->GetWindowLevel()->SetInputData(localVTKImage->GetVTKImage());
 #endif
 
-			int *dimensions = localVTKImage->GetVTKImage()->GetDimensions();
-			//imageviewer->GetRenderWindow()->SetSize(200, 200);
-			imageviewer->Render();
-			imageviewer->GetRenderer()->ResetCamera();
-			imageviewer->GetRenderer()->GetActiveCamera()->SetParallelScale(dimensions[1]);
-			renderPreview->update();
+		int *dimensions = localVTKImage->GetVTKImage()->GetDimensions();
+		//imageviewer->GetRenderWindow()->SetSize(200, 200);
+		imageviewer->Render();
+		imageviewer->GetRenderer()->ResetCamera();
+		imageviewer->GetRenderer()->GetActiveCamera()->SetParallelScale(dimensions[1]);
+		renderPreview->update();
 
-			horizontalSlider->setValue(0);
-			horizontalSlider->setEnabled(true);
-			horizontalSlider->setRange(0, dimensions[2]);
+		horizontalSlider->setValue(0);
+		horizontalSlider->setEnabled(true);
+		horizontalSlider->setRange(0, dimensions[2]);
 
-			std::ostringstream str_dimensions;
-			str_dimensions << "[" << dimensions[0] << "," << dimensions[1] << "," << dimensions[2] << "]";
-		}
-		else if (filename.endsWith("vtk"))
-		{
-			// get local 8-bit representation of the string in locale encoding (in case the filename contains non-ASCII characters) 
-			QByteArray ba = filename.toLocal8Bit();
-			const char *filename_str = ba.data();
-
-			// Read the file
-			vtkSmartPointer<vtkGenericDataObjectReader> reader =
-				vtkSmartPointer<vtkGenericDataObjectReader>::New();
-			reader->SetFileName(filename_str);
-			reader->Update();
-
-			// Visualize
-			vtkSmartPointer<vtkPolyDataMapper> mapper =
-				vtkSmartPointer<vtkPolyDataMapper>::New();
-			mapper->SetInputConnection(reader->GetOutputPort());
-			mapper->ScalarVisibilityOff();
-
-			vtkSmartPointer<vtkActor> actor =
-				vtkSmartPointer<vtkActor>::New();
-			actor->SetMapper(mapper);
-			actor->GetProperty()->SetDiffuseColor(1, 1, 1);
-
-			vtkSmartPointer<vtkRenderer> renderer =
-				vtkSmartPointer<vtkRenderer>::New();
-			renderer->AddActor(actor);
-			renderer->SetBackground(.2, .3, .4);
-
-			// clean previous renderers and then add the current renderer
-			auto window = widgetCortex->GetRenderWindow();
-			auto collection = window->GetRenderers();
-			auto item = collection->GetNumberOfItems();
-			while (item)
-			{
-				window->RemoveRenderer(collection->GetFirstRenderer());
-				item = collection->GetNumberOfItems();
-			}
-			window->AddRenderer(renderer);
-			window->Render();
-
-			// initialize the interactor
-			interactor->Initialize();
-			interactor->Start();
-		}
+		std::ostringstream str_dimensions;
+		str_dimensions << "[" << dimensions[0] << "," << dimensions[1] << "," << dimensions[2] << "]";
 	}
-	else
+	else if (filename.endsWith("vtk"))
 	{
-		return;
+		// get local 8-bit representation of the string in locale encoding (in case the filename contains non-ASCII characters) 
+		QByteArray ba = filename.toLocal8Bit();
+		const char *filename_str = ba.data();
+
+		// Read the file
+		vtkSmartPointer<vtkGenericDataObjectReader> reader =
+			vtkSmartPointer<vtkGenericDataObjectReader>::New();
+		reader->SetFileName(filename_str);
+		reader->Update();
+
+		// Visualize
+		vtkSmartPointer<vtkPolyDataMapper> mapper =
+			vtkSmartPointer<vtkPolyDataMapper>::New();
+		mapper->SetInputConnection(reader->GetOutputPort());
+		mapper->ScalarVisibilityOff();
+
+		vtkSmartPointer<vtkActor> actor =
+			vtkSmartPointer<vtkActor>::New();
+		actor->SetMapper(mapper);
+		actor->GetProperty()->SetDiffuseColor(1, 1, 1);
+
+		vtkSmartPointer<vtkRenderer> renderer =
+			vtkSmartPointer<vtkRenderer>::New();
+		renderer->AddActor(actor);
+		renderer->SetBackground(.2, .3, .4);
+
+		// clean previous renderers and then add the current renderer
+		auto window = widgetCortex->GetRenderWindow();
+		auto collection = window->GetRenderers();
+		auto item = collection->GetNumberOfItems();
+		while (item)
+		{
+			window->RemoveRenderer(collection->GetFirstRenderer());
+			item = collection->GetNumberOfItems();
+		}
+		window->AddRenderer(renderer);
+		window->Render();
+
+		// initialize the interactor
+		interactor->Initialize();
+		interactor->Start();
 	}
 }
 
