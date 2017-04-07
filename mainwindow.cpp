@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	widgetCortex = new QVTKWidget();
 	horizontalSlider = new QSlider();
 	ui = new Ui::MainWindow;
+	fileToolBar = new QToolBar();
 	ui->setupUi(this);
 
 	// add VTK widgets
@@ -140,6 +141,13 @@ bool MainWindow::onSliderChange(int z)
 	imageviewer->SetSlice(z);
 	renderPreview->update();
 	return true;
+}
+
+void MainWindow::createToolBars()
+{
+	fileToolBar = addToolBar(tr("File"));
+	fileToolBar->addAction(ui->action_Open);
+	fileToolBar->addAction(ui->action_Save);
 }
 
 void MainWindow::readSettings()

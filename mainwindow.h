@@ -54,6 +54,7 @@ private:
 	QSlider                                                 *horizontalSlider;
 	QString													curFile;
 	QPlainTextEdit                                          *textEdit;
+	QToolBar                                                *fileToolBar;
 
 private slots:
     void open();
@@ -65,6 +66,7 @@ private slots:
 	bool marchingCubes();
 
 private:
+	void createToolBars();
 	void readSettings();
 	void writeSettings();
 	void createActions();
