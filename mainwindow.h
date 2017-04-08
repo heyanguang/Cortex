@@ -67,6 +67,7 @@ private slots:
 
 private:
 	void createToolBars();
+	void createStatusBar();
 	void readSettings();
 	void writeSettings();
 	void createActions();

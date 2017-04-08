@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	widgetCortex = new QVTKWidget();
 	horizontalSlider = new QSlider();
 	ui = new Ui::MainWindow;
-	fileToolBar = new QToolBar();
+	//fileToolBar = new QToolBar();
 	ui->setupUi(this);
 
 	// add VTK widgets
@@ -80,7 +80,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 	// set default data set
 	filename = "../../../data/nucleon.mhd";
-	readSettings();
+	createToolBars();
+	createStatusBar();
+	//readSettings();
 	createActions();
 }
 
@@ -145,9 +147,13 @@ bool MainWindow::onSliderChange(int z)
 
 void MainWindow::createToolBars()
 {
-	fileToolBar = addToolBar(tr("File"));
-	fileToolBar->addAction(ui->action_Open);
-	fileToolBar->addAction(ui->action_Save);
+	ui->mainToolBar->addAction(ui->action_Open);
+	ui->mainToolBar->addAction(ui->action_Save);
+}
+
+void MainWindow::createStatusBar()
+{
+	ui->statusBar->showMessage("Ready");
 }
 
 void MainWindow::readSettings()
@@ -195,8 +201,6 @@ void MainWindow::createActions()
 	connect(ui->action_ContourSurface, SIGNAL(triggered()), this, SLOT(contourSurface()));
 
 	connect(ui->action_MarchingCubes, SIGNAL(triggered()), this, SLOT(marchingCubes()));
-
-	
 }
 
 void MainWindow::loadFile(const QString& filename)
