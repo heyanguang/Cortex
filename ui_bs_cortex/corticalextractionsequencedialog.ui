@@ -1,0 +1,1540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CorticalExtractionSequenceDialog</class>
+ <widget class="QDialog" name="CorticalExtractionSequenceDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>589</width>
+    <height>663</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Cortical Surface Extraction Sequence</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>490</y>
+     <width>571</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Automatically Save Results</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_9">
+    <property name="leftMargin">
+     <number>3</number>
+    </property>
+    <property name="topMargin">
+     <number>3</number>
+    </property>
+    <property name="rightMargin">
+     <number>3</number>
+    </property>
+    <property name="bottomMargin">
+     <number>3</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0" colspan="2">
+     <widget class="QCheckBox" name="autosaveOutputCheckBox">
+      <property name="text">
+       <string>save output of each stage automatically</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QPushButton" name="suggestOutputsPushButton">
+      <property name="text">
+       <string>Suggest Prefix and Directory</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="3">
+     <widget class="QTextEdit" name="autosaveStatus">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Filename Prefix</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1" colspan="2">
+     <widget class="QLineEdit" name="filenamePrefixLineEdit"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="workingDirectoryPushButton">
+      <property name="text">
+       <string>Working Directory</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="2">
+     <widget class="QLineEdit" name="workingDirectoryLineEdit"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Extraction Stages</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget1">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>197</width>
+     <height>295</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_8">
+    <item row="7" column="0">
+     <widget class="QCheckBox" name="topologyCorrectionCheckBox">
+      <property name="text">
+       <string>Topology correction</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
+     <widget class="QCheckBox" name="pialSurfaceCheckBox">
+      <property name="text">
+       <string>Pial surface</string>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="0">
+     <widget class="QCheckBox" name="registerLabelBrainCheckBox">
+      <property name="text">
+       <string>Register and label brain</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QCheckBox" name="innerCortexMaskCheckBox">
+      <property name="text">
+       <string>Inner cortical mask</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QCheckBox" name="biasFieldCorrectionCheckBox">
+      <property name="text">
+       <string>Nonuniformity correction</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QCheckBox" name="dewispCheckBox">
+      <property name="text">
+       <string>Wisp removal</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0">
+     <widget class="QCheckBox" name="innerCorticalSurfaceCheckBox">
+      <property name="text">
+       <string>Inner cortical surface</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="0">
+     <widget class="QCheckBox" name="hemisplitCheckBox">
+      <property name="text">
+       <string>Split hemispheres</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QCheckBox" name="skullStrippingCheckBox">
+      <property name="text">
+       <string>Skull stripping</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QCheckBox" name="cerebrumLabelingCheckBox">
+      <property name="text">
+       <string>Cerebrum labeling</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QCheckBox" name="tissueClassificationCorrectionCheckBox">
+      <property name="text">
+       <string>Tissue classification</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QCheckBox" name="scrubMaskCheckBox">
+      <property name="text">
+       <string>Scrub mask</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QCheckBox" name="skullfinderCheckBox">
+      <property name="text">
+       <string>Skull and scalp</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget2">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>110</y>
+     <width>351</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QComboBox" name="parameterPageComboBox">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="parametersStackedWidget">
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="currentIndex">
+       <number>5</number>
+      </property>
+      <widget class="QWidget" name="parametersStackedWidgetPage1">
+       <widget class="QWidget" name="layoutWidget3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>202</width>
+          <height>172</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="diffusionIterationsLabel">
+           <property name="text">
+            <string>Diffusion Iterations</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="diffusionIterationsEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="diffusionConstantLabel">
+           <property name="text">
+            <string>Diffusion Constant</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="diffusionConstantEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="edgeConstantLabel">
+           <property name="text">
+            <string>Edge Constant</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="edgeConstantEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="erosionSizeLabel">
+           <property name="text">
+            <string>Erosion Size</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QSpinBox" name="erosionSizeSpinbox">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QCheckBox" name="dilateFinalMaskCheckBox">
+           <property name="text">
+            <string>dilate final mask</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0" colspan="2">
+          <widget class="QCheckBox" name="trimSpinalCordCheckBox">
+           <property name="text">
+            <string>trim spinal cord/brain stem</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <widget class="QWidget" name="layoutWidget4">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>211</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_12">
+         <item row="0" column="0" colspan="2">
+          <widget class="QCheckBox" name="skullComputeThresholdsCheckBox">
+           <property name="text">
+            <string>Compute thresholds</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="diffusionIterationsLabel_2">
+           <property name="text">
+            <string>Skull threshold</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="skullThresholdEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="diffusionConstantLabel_2">
+           <property name="text">
+            <string>Scalp threshold</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="scalpThresholdEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="parametersStackedWidgetPage2">
+       <widget class="QWidget" name="layoutWidget5">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>331</width>
+          <height>244</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="7" column="2">
+          <widget class="QPushButton" name="mediumRangeButton">
+           <property name="text">
+            <string>medium</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QLabel" name="histogramRadiusLabel">
+           <property name="text">
+            <string>Histogram radius</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="4">
+          <widget class="QCheckBox" name="iterativeModeCheckBox">
+           <property name="text">
+            <string>Iterative mode</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="histogramRadiusEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="2">
+          <widget class="QLabel" name="sampleSpacingLabel">
+           <property name="text">
+            <string>Sample spacing</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLineEdit" name="sampleSpacingEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0" colspan="2">
+          <widget class="QLabel" name="controlPointSpacingLabel">
+           <property name="text">
+            <string>Control point spacing</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLineEdit" name="controlPointSpacingEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0" colspan="2">
+          <widget class="QLabel" name="splineStiffnessLabel">
+           <property name="text">
+            <string>Spline stiffness</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLineEdit" name="splineStiffnessEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0" colspan="2">
+          <widget class="QLabel" name="roiShapeLabel">
+           <property name="text">
+            <string>ROI Shape</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="2">
+          <widget class="QRadioButton" name="cuboidRadioButton">
+           <property name="text">
+            <string>cuboid</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QRadioButton" name="ellipsoidRadioButton">
+           <property name="text">
+            <string>ellipsoid</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0" colspan="2">
+          <widget class="QLabel" name="biasEstimateRangeLabel">
+           <property name="text">
+            <string>Bias estimate range</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2">
+          <widget class="QLineEdit" name="biasRangeLowerEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="3">
+          <widget class="QLineEdit" name="biasRangeUpperEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>18</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="7" column="1">
+          <widget class="QPushButton" name="lowRangeButton">
+           <property name="text">
+            <string>low</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="3">
+          <widget class="QPushButton" name="highRangeButton">
+           <property name="text">
+            <string>high</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="parametersStackedWidgetPage3">
+       <widget class="QWidget" name="layoutWidget6">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>181</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Spatial Prior</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="spatialPriorWeightingEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="parametersStackedWidgetPage4">
+       <widget class="QWidget" name="layoutWidget7">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>331</width>
+          <height>192</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Linear Convergence</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0" colspan="2">
+          <widget class="QCheckBox" name="showAlignedAtlasAsOverlayCheckBox">
+           <property name="text">
+            <string>Show aligned atlas as overlay</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="warpConvergenceEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QComboBox" name="costFunctionComboBox">
+           <property name="minimumSize">
+            <size>
+             <width>170</width>
+             <height>0</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QCheckBox" name="verboseCheckBox">
+           <property name="text">
+            <string>Verbose</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_9">
+           <property name="text">
+            <string>Warp Level</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>Cost Function</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QSpinBox" name="warpLevelSpinBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="linearConvergenceEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>Warp Convergence</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="QCheckBox" name="useCentroidsCheckBox">
+           <property name="text">
+            <string>Initialize using centroids</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget8">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>220</y>
+          <width>331</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_19">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="atlasPushButton">
+           <property name="maximumSize">
+            <size>
+             <width>110</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Atlas</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="DSFileLabel" name="atlasFileTextLabel">
+           <property name="acceptDrops">
+            <bool>true</bool>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Sunken</enum>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+           <property name="scaledContents">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="labelsPushButton">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Labels</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="DSFileLabel" name="labelFileTextLabel">
+           <property name="acceptDrops">
+            <bool>true</bool>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Sunken</enum>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+           <property name="scaledContents">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="tempPathPushButton">
+           <property name="maximumSize">
+            <size>
+             <width>110</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Temp</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="DSFileLabel" name="tempPathTextLabel">
+           <property name="acceptDrops">
+            <bool>true</bool>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Sunken</enum>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+           <property name="scaledContents">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="parametersStackedWidgetPage5">
+       <widget class="QWidget" name="layoutWidget9">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>321</width>
+          <height>33</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_16">
+           <property name="text">
+            <string>Tissue threshold   </string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="tissueThresholdEditBox">
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QPushButton" name="applyCortexThresholdPushButton">
+           <property name="text">
+            <string>Recompute</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>40</y>
+          <width>321</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QCheckBox" name="includeAllSubcorticalLabelsCheckBox">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_29">
+           <property name="text">
+            <string>Include all areas labeled as subcortex as part of initial mask</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="parametersStackedWidgetPage6">
+       <widget class="QWidget" name="layoutWidget10">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>231</width>
+          <height>56</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_7">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_18">
+           <property name="text">
+            <string>Foreground threshold </string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="foregroundThresholdEditBox">
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_17">
+           <property name="text">
+            <string>Background threshold </string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="backgroundThresholdEditBox">
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="parametersStackedWidgetPage7">
+       <widget class="QWidget" name="layoutWidget11">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>250</width>
+          <height>88</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Minimum correction size</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="minimumCorrectionEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Maximum correction size</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="maximumCorrectionEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Fill offset</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="fillOffsetEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="parametersStackedWidgetPage8">
+       <widget class="QWidget" name="layoutWidget12">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>221</width>
+          <height>56</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_14">
+           <property name="text">
+            <string>Threshold</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_15">
+           <property name="text">
+            <string>Maximum iterations</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="dewispThresholdEditBox">
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="dewispMaximumIterationsEditBox">
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="parametersStackedWidgetPage9">
+       <widget class="QWidget" name="layoutWidget13">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>221</width>
+          <height>88</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_17">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_12">
+           <property name="text">
+            <string>Smoothing iterations</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="smoothingIterationsEditBox">
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_11">
+           <property name="text">
+            <string>Smoothing constant</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="smoothingConstantEditBox">
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_13">
+           <property name="text">
+            <string>Curvature weight</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="curvatureWeightEditBox">
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="parametersStackedWidgetPage10">
+       <widget class="QWidget" name="layoutWidget14">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>331</width>
+          <height>351</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_10">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_19">
+           <property name="text">
+            <string>Presmooth iterations</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="pialPresmoothIterationsEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_20">
+           <property name="text">
+            <string>Iterations</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="pialIterationsEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_21">
+           <property name="text">
+            <string>Collision detection radius (mm)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="pialCollisionDetectionRadiusEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_22">
+           <property name="text">
+            <string>Thickness limit (mm)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="pialThicknessLimitEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_23">
+           <property name="text">
+            <string>Step size (mm)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="pialStepSizeEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_24">
+           <property name="text">
+            <string>Tissue threshold</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="pialTissueThresholdEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_25">
+           <property name="text">
+            <string>Smoothing constant</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="pialSmoothingConstantEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_26">
+           <property name="text">
+            <string>Radial constant</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="pialRadialConstantEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_27">
+           <property name="text">
+            <string>Update surface interval</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="pialUpdateSurfaceIntervalEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="0" colspan="2">
+          <widget class="QCheckBox" name="pialConstrainWithCerebrumMaskCheckBox">
+           <property name="text">
+            <string>constrain with cerebrum mask</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0">
+          <widget class="QPushButton" name="pialLoadCustomMaskButton">
+           <property name="text">
+            <string>Load Custom Mask</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="parametersStackedWidgetPage11">
+       <widget class="QLabel" name="label_35">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>321</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>There are no parameters for the hemisphere splitting module.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page">
+       <widget class="QCheckBox" name="refineSulcalCurvesCheckBox">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>231</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Refine sulcal curves</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="surfaceRegistrationOnlyCheckBox">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>231</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Run only the surface registration programs; skip the volumetric registration.</string>
+        </property>
+        <property name="text">
+         <string>Surface registration only</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="labeledAtlasComboBox">
+        <property name="geometry">
+         <rect>
+          <x>157</x>
+          <y>20</y>
+          <width>182</width>
+          <height>26</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_28">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>141</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Labeled Atlas</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="extendLabelsCheckBox">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>90</y>
+          <width>331</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Extend labels within cerebrum mask</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_3"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QProgressBar" name="progressBar">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>85</y>
+     <width>351</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget15">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>571</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_11">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="resetPushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Reset</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QPushButton" name="runStepPushButton">
+      <property name="text">
+       <string>Step &gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="runStagePushButton">
+      <property name="text">
+       <string>Stage &gt;&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="stepBackPushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>&lt; Back</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QPushButton" name="previousStagePushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>&lt;&lt; Stage</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <widget class="QPushButton" name="runAllPushButton">
+      <property name="text">
+       <string>Run All</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="extractionStepLabel">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>70</y>
+     <width>351</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="extractionStageLabel">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>50</y>
+     <width>351</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>DSFileLabel</class>
+   <extends>QLabel</extends>
+   <header>dsfilelabel.h</header>
+   <slots>
+    <signal>fileDropped(QString)</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

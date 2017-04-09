@@ -1,0 +1,1225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BrainSuiteWindow</class>
+ <widget class="QMainWindow" name="BrainSuiteWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::ClickFocus</enum>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>BrainSuiteWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWindow">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="2">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="2">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="3">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="0">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <widget class="WelcomeSplashPage" name="splashWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>640</width>
+        <height>480</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <widget class="QMenu" name="menu_Open_2">
+     <property name="title">
+      <string>&amp;Open</string>
+     </property>
+     <addaction name="action_Mask_Volume"/>
+     <addaction name="action_Label_Volume"/>
+     <addaction name="action_Open_Overlay_Volume"/>
+     <addaction name="action_Overlay2_Volume"/>
+     <addaction name="actionTime_series_list"/>
+     <addaction name="actionColormap_LUT"/>
+     <addaction name="separator"/>
+     <addaction name="action_Tissue_Fraction_Volume"/>
+     <addaction name="action_Hemisphere_Label_Volume"/>
+     <addaction name="separator"/>
+     <addaction name="action_Surface"/>
+     <addaction name="action_OpenCurveset"/>
+     <addaction name="separator"/>
+     <addaction name="action_Fiber_Tract_Set"/>
+     <addaction name="actionOpen_connectivity_matrix"/>
+     <addaction name="action_HARDI_SHC_Data"/>
+     <addaction name="actionLoad_ODF_Maxima"/>
+     <addaction name="separator"/>
+     <addaction name="actionLabel_Description_File"/>
+     <addaction name="actionLoad_Custom_Cerebrum_Mask"/>
+     <addaction name="separator"/>
+     <addaction name="action_BST_File"/>
+     <addaction name="separator"/>
+     <addaction name="actionExtraction_Settings"/>
+    </widget>
+    <widget class="QMenu" name="menu_Save">
+     <property name="title">
+      <string>&amp;Save Volume</string>
+     </property>
+     <addaction name="action_Save_Primary_Volume"/>
+     <addaction name="action_Save_Overlay1_Volume"/>
+     <addaction name="action_Save_Overlay2_Volume"/>
+     <addaction name="action_SaveMaskVolume"/>
+     <addaction name="action_Save_Label_Volume"/>
+     <addaction name="separator"/>
+     <addaction name="separator"/>
+     <addaction name="actionODF_Eig"/>
+    </widget>
+    <widget class="QMenu" name="menuRecent_Volume">
+     <property name="title">
+      <string>&amp;Recent Files</string>
+     </property>
+     <addaction name="actionMRU1"/>
+    </widget>
+    <widget class="QMenu" name="menuSave_Fiber_Tracts">
+     <property name="title">
+      <string>Save Fiber Tracks</string>
+     </property>
+     <addaction name="actionSave_Full_Set"/>
+     <addaction name="actionSave_Subset"/>
+    </widget>
+    <addaction name="actionImage_Volume"/>
+    <addaction name="menu_Open_2"/>
+    <addaction name="menuRecent_Volume"/>
+    <addaction name="menu_Save"/>
+    <addaction name="menuSave_Fiber_Tracts"/>
+    <addaction name="actionSave_Extraction_Settings"/>
+    <addaction name="actionSave_Connectivity_Matrix"/>
+    <addaction name="actionSave_Surfaceview_Screenshot"/>
+    <addaction name="separator"/>
+    <addaction name="actionUse_Native_File_Dialogs"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menu_Surface">
+    <property name="title">
+     <string>&amp;Surface</string>
+    </property>
+    <addaction name="actionSurface_DisplayProperties"/>
+    <addaction name="action_Continuous_sync_with_image_view"/>
+    <addaction name="action_Reset_Surface_View"/>
+    <addaction name="action_Popout_Surface_View"/>
+   </widget>
+   <widget class="QMenu" name="menu_Edit">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="action_Undo_mask_edit"/>
+    <addaction name="actionRedo_mask_edit"/>
+    <addaction name="actionDisable_Mask_Undo_System"/>
+   </widget>
+   <widget class="QMenu" name="menu_Image">
+    <property name="title">
+     <string>&amp;Image</string>
+    </property>
+    <widget class="QMenu" name="menuVolume_LUT">
+     <property name="title">
+      <string>Volume LUT</string>
+     </property>
+    </widget>
+    <widget class="QMenu" name="menuScreen_Mask_Mode">
+     <property name="title">
+      <string>Screen &amp;Mask Mode</string>
+     </property>
+     <addaction name="action_Stencil"/>
+     <addaction name="action_Outline"/>
+     <addaction name="action_Blend"/>
+     <addaction name="action_Mask_Only"/>
+    </widget>
+    <addaction name="actionShow_Volume"/>
+    <addaction name="actionShow_Overlay_1"/>
+    <addaction name="actionShow_Overlay_2"/>
+    <addaction name="actionShow_Label_Overlay"/>
+    <addaction name="actionScreen_with_Mask_Volume"/>
+    <addaction name="menuScreen_Mask_Mode"/>
+    <addaction name="actionShow_Labels_as_Outlines"/>
+    <addaction name="separator"/>
+    <addaction name="menuVolume_LUT"/>
+    <addaction name="actionOverlay1_LUT"/>
+    <addaction name="actionOverlay2_LUT"/>
+    <addaction name="action_Autoscale_Image_Intensities"/>
+    <addaction name="action_Show_Curves_on_Image_Slices"/>
+    <addaction name="actionThree_color_mode"/>
+    <addaction name="actionDisable_Autoscaling"/>
+   </widget>
+   <widget class="QMenu" name="menu_View">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="action_Image_Display_Properties"/>
+    <addaction name="action_Orthogonal_Views_Surface_View"/>
+    <addaction name="action_Surface_View_Only"/>
+    <addaction name="actionSingle_Frame"/>
+    <addaction name="separator"/>
+    <addaction name="actionZoom_Best_Fit"/>
+    <addaction name="separator"/>
+    <addaction name="actionAxial_View"/>
+    <addaction name="actionSagittal_View"/>
+    <addaction name="actionCoronal_View"/>
+    <addaction name="actionAutozoom_on_Resize"/>
+   </widget>
+   <widget class="QMenu" name="menu_Cortex">
+    <property name="title">
+     <string>&amp;Cortex</string>
+    </property>
+    <addaction name="action_Cortical_Extraction_Sequence"/>
+    <addaction name="separator"/>
+    <addaction name="action_BSE"/>
+    <addaction name="action_Skull_and_Scalp"/>
+    <addaction name="actionNonuniformity_Correction_BFC"/>
+    <addaction name="actionTissue_Classification_PVC"/>
+    <addaction name="action_Cerebrum_Extraction"/>
+    <addaction name="action_Inner_Cortex_Boundary"/>
+    <addaction name="action_Scrub_Mask"/>
+    <addaction name="action_Topological_Correction"/>
+    <addaction name="action_Wisp_Filter"/>
+    <addaction name="action_Inner_Cortical_Surface"/>
+    <addaction name="action_Pial_Surface"/>
+    <addaction name="action_Hemisphere_Splitting"/>
+    <addaction name="actionSurface_Volume_Registration"/>
+    <addaction name="separator"/>
+    <addaction name="actionSelect_SVReg_Directory"/>
+    <addaction name="actionAdd_Custom_SVReg_Atlas_Directory"/>
+   </widget>
+   <widget class="QMenu" name="menu_Tools">
+    <property name="title">
+     <string>&amp;Tools</string>
+    </property>
+    <addaction name="action_Mask_Tool"/>
+    <addaction name="action_Painter_Tool"/>
+    <addaction name="action_Diffusion_Display_Properties"/>
+    <addaction name="action_HARDI_Tool"/>
+    <addaction name="actionFiber_Tract_Tool"/>
+    <addaction name="action_Connectivity_Viewer"/>
+    <addaction name="action_Curve_Tool"/>
+    <addaction name="separator"/>
+    <addaction name="actionVolume_Info"/>
+    <addaction name="action_Show_Current_Display_Settings"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_About_BrainSuiteQT"/>
+    <addaction name="action_Visit_the_BrainSuite_website"/>
+    <addaction name="action_Visit_the_BrainSuite_Forum"/>
+    <addaction name="action_Visit_the_BrainSuite_Download_Page"/>
+    <addaction name="action_Reinstall_BrainSuite_Atlas_Files"/>
+    <addaction name="actionAllow_BrainSuite_to_Check_for_Updates"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menu_Edit"/>
+   <addaction name="menu_Image"/>
+   <addaction name="menu_View"/>
+   <addaction name="menu_Cortex"/>
+   <addaction name="menu_Tools"/>
+   <addaction name="menu_Surface"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="windowTitle">
+    <string>Toolbar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionImage_Volume"/>
+   <addaction name="separator"/>
+   <addaction name="action_Image_Display_Properties"/>
+   <addaction name="action_Mask_Tool"/>
+   <addaction name="action_Diffusion_Display_Properties"/>
+   <addaction name="action_Curve_Tool"/>
+   <addaction name="separator"/>
+   <addaction name="action_Popout_Surface_View"/>
+   <addaction name="separator"/>
+   <addaction name="action_Orthogonal_Views_Surface_View"/>
+   <addaction name="action_Surface_View_Only"/>
+   <addaction name="actionCoronal_View"/>
+   <addaction name="actionSagittal_View"/>
+   <addaction name="actionAxial_View"/>
+   <addaction name="separator"/>
+   <addaction name="action_Reset_Surface_View"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="consoleDockWidget">
+   <property name="allowedAreas">
+    <set>Qt::BottomDockWidgetArea|Qt::TopDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>BrainSuite Log</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QGridLayout" name="consoleGridLayout">
+     <item row="0" column="0">
+      <widget class="ConsoleText" name="consoleTextEdit">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="surfaceDisplayPropertiesDockWidget">
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Surface Display</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_4"/>
+  </widget>
+  <widget class="QDockWidget" name="diffusionToolboxDockWidget">
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Diffusion Toolbox</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2"/>
+  </widget>
+  <widget class="QDockWidget" name="imageDisplayPropertiesDockWidget">
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Image Display</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_3"/>
+  </widget>
+  <widget class="QDockWidget" name="delineationToolboxDockWidget">
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Delineation Toolbox</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_5"/>
+  </widget>
+  <widget class="QDockWidget" name="curveToolDockWidget">
+   <property name="features">
+    <set>QDockWidget::AllDockWidgetFeatures</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Curve Toolbox</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_6"/>
+  </widget>
+  <action name="actionExit">
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="actionSurface_DisplayProperties">
+   <property name="text">
+    <string>Show Surface &amp;Display Properties Toolbox</string>
+   </property>
+  </action>
+  <action name="actionImage_Volume">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/folder_open_brain_256px.png</normaloff>:/images/images/folder_open_brain_256px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open Volume...</string>
+   </property>
+   <property name="toolTip">
+    <string>Open Image Volume</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_Surface">
+   <property name="text">
+    <string>&amp;Surface...</string>
+   </property>
+   <property name="toolTip">
+    <string>Open Surface...</string>
+   </property>
+  </action>
+  <action name="action_Mask_Volume">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/mask_icon.png</normaloff>:/images/images/mask_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Mask Volume...</string>
+   </property>
+  </action>
+  <action name="action_Label_Volume">
+   <property name="text">
+    <string>&amp;Label Volume...</string>
+   </property>
+  </action>
+  <action name="action_About_BrainSuiteQT">
+   <property name="text">
+    <string>&amp;About BrainSuite</string>
+   </property>
+  </action>
+  <action name="action_Visit_the_BrainSuite_website">
+   <property name="text">
+    <string>&amp;Visit the BrainSuite Website</string>
+   </property>
+  </action>
+  <action name="action_Tools">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Tools</string>
+   </property>
+  </action>
+  <action name="actionGrey">
+   <property name="text">
+    <string>Grey</string>
+   </property>
+  </action>
+  <action name="actionHot">
+   <property name="text">
+    <string>Hot</string>
+   </property>
+  </action>
+  <action name="actionJet">
+   <property name="text">
+    <string>Jet</string>
+   </property>
+  </action>
+  <action name="action_Open_Overlay_Volume">
+   <property name="text">
+    <string>&amp;Overlay Volume</string>
+   </property>
+   <property name="toolTip">
+    <string>Open Overlay Volume</string>
+   </property>
+  </action>
+  <action name="action_Overlay2_Volume">
+   <property name="text">
+    <string>&amp;Overlay2 Volume...</string>
+   </property>
+  </action>
+  <action name="action_Tissue_Fraction_Volume">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Tissue Fraction Volume...</string>
+   </property>
+  </action>
+  <action name="action_Hemisphere_Label_Volume">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Hemisphere Label Volume</string>
+   </property>
+  </action>
+  <action name="action_OpenCurveset">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Curveset...</string>
+   </property>
+  </action>
+  <action name="action_Import_DICOM">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Import DICOM</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionShow_Volume">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show &amp;Volume</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionShow_Overlay_1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Overlay&amp;1</string>
+   </property>
+  </action>
+  <action name="actionShow_Overlay_2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Overlay&amp;2</string>
+   </property>
+  </action>
+  <action name="actionShow_Label_Overlay">
+   <property name="text">
+    <string>Show &amp;Label Overlay</string>
+   </property>
+  </action>
+  <action name="actionScreen_with_Mask_Volume">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Screen with &amp;Mask Volume</string>
+   </property>
+  </action>
+  <action name="action_Stencil">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Stencil</string>
+   </property>
+  </action>
+  <action name="action_Outline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Outline</string>
+   </property>
+  </action>
+  <action name="action_Blend">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Blend</string>
+   </property>
+  </action>
+  <action name="action_Mask_Only">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Mask Only</string>
+   </property>
+  </action>
+  <action name="actionOverlay1_LUT">
+   <property name="text">
+    <string>Overlay1 LUT</string>
+   </property>
+  </action>
+  <action name="actionOverlay2_LUT">
+   <property name="text">
+    <string>Overlay2 LUT</string>
+   </property>
+  </action>
+  <action name="actionThree_Color_Mode">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Three Color Mode</string>
+   </property>
+  </action>
+  <action name="action_Autoscale_Image_Intensities">
+   <property name="text">
+    <string>&amp;Autoscale Image Intensities</string>
+   </property>
+  </action>
+  <action name="action_Image_Display_Properties">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/image_properties.png</normaloff>:/images/images/image_properties.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Image Display Properties</string>
+   </property>
+  </action>
+  <action name="action_Visit_the_BrainSuite_Forum">
+   <property name="text">
+    <string>&amp;Visit the BrainSuite Forum</string>
+   </property>
+  </action>
+  <action name="action_Visit_the_BrainSuite_Download_Page">
+   <property name="text">
+    <string>&amp;Visit the BrainSuite Download Page</string>
+   </property>
+  </action>
+  <action name="action_Continuous_sync_with_image_view">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Continuous sync with image view</string>
+   </property>
+  </action>
+  <action name="action_HARDI_SHC_Data">
+   <property name="text">
+    <string>&amp;HARDI SHC Data...</string>
+   </property>
+  </action>
+  <action name="action_Fiber_Tract_Set">
+   <property name="text">
+    <string>&amp;Fiber Track Set...</string>
+   </property>
+  </action>
+  <action name="actionFiber_Tract_Tool">
+   <property name="text">
+    <string>Fiber Tract Tool</string>
+   </property>
+  </action>
+  <action name="actionLabel_Description_File">
+   <property name="text">
+    <string>Label &amp;Description File...</string>
+   </property>
+  </action>
+  <action name="action_BST_File">
+   <property name="text">
+    <string>&amp;BST File...</string>
+   </property>
+  </action>
+  <action name="actionSkull_Stripping_BSE">
+   <property name="text">
+    <string>Skull Stripping (BSE)</string>
+   </property>
+  </action>
+  <action name="action_BSE">
+   <property name="text">
+    <string>&amp;Skull Stripping (BSE)</string>
+   </property>
+  </action>
+  <action name="action_SaveMaskVolume">
+   <property name="text">
+    <string>&amp;Mask Volume</string>
+   </property>
+  </action>
+  <action name="action_Connectivity_Viewer">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Connectivity Viewer</string>
+   </property>
+  </action>
+  <action name="actionTissue_Classification_PVC">
+   <property name="text">
+    <string>Tissue Classification (PVC)</string>
+   </property>
+  </action>
+  <action name="actionMRU1">
+   <property name="text">
+    <string>MRU1</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionNonuniformity_Correction_BFC">
+   <property name="text">
+    <string>Nonuniformity Correction (BFC)</string>
+   </property>
+  </action>
+  <action name="action_Cerebrum_Extraction">
+   <property name="text">
+    <string>&amp;Cerebrum Labeling</string>
+   </property>
+  </action>
+  <action name="action_Inner_Cortex_Boundary">
+   <property name="text">
+    <string>&amp;Inner Cortical Mask</string>
+   </property>
+  </action>
+  <action name="action_Scrub_Mask">
+   <property name="text">
+    <string>&amp;Scrub Mask</string>
+   </property>
+  </action>
+  <action name="action_Topological_Correction">
+   <property name="text">
+    <string>&amp;Topology Correction</string>
+   </property>
+  </action>
+  <action name="action_Wisp_Filter">
+   <property name="text">
+    <string>&amp;Wisp Removal</string>
+   </property>
+  </action>
+  <action name="action_Inner_Cortical_Surface">
+   <property name="text">
+    <string>&amp;Inner Cortical Surface</string>
+   </property>
+  </action>
+  <action name="action_Pial_Surface">
+   <property name="text">
+    <string>&amp;Pial Surface</string>
+   </property>
+  </action>
+  <action name="action_Hemisphere_Splitting">
+   <property name="text">
+    <string>&amp;Split Hemispheres</string>
+   </property>
+  </action>
+  <action name="action_Skull_and_Scalp">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Skull and Scalp</string>
+   </property>
+  </action>
+  <action name="action_Orthogonal_Views_Surface_View">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/surface_screen_4up_256px.png</normaloff>:/images/images/surface_screen_4up_256px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Orthogonal Views + Surface View</string>
+   </property>
+  </action>
+  <action name="action_Surface_View_Only">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/surface_screen_maximize_256px.png</normaloff>:/images/images/surface_screen_maximize_256px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Surface View Only</string>
+   </property>
+  </action>
+  <action name="actionZoom_Best_Fit">
+   <property name="text">
+    <string>Zoom &amp;Best Fit</string>
+   </property>
+  </action>
+  <action name="action_Mask_Tool">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/mask_icon.png</normaloff>:/images/images/mask_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Mask Tool</string>
+   </property>
+  </action>
+  <action name="action_Painter_Tool">
+   <property name="text">
+    <string>&amp;Painter Tool</string>
+   </property>
+  </action>
+  <action name="action_Cortical_Extraction_Sequence">
+   <property name="text">
+    <string>&amp;Cortical Surface Extraction Sequence</string>
+   </property>
+  </action>
+  <action name="action_Save_Primary_Volume">
+   <property name="text">
+    <string>&amp;Primary Volume</string>
+   </property>
+  </action>
+  <action name="action_Save_Overlay1_Volume">
+   <property name="text">
+    <string>&amp;Overlay1 Volume</string>
+   </property>
+  </action>
+  <action name="action_Save_Overlay2_Volume">
+   <property name="text">
+    <string>&amp;Overlay2 Volume</string>
+   </property>
+  </action>
+  <action name="action_Save_Label_Volume">
+   <property name="text">
+    <string>&amp;Label Volume</string>
+   </property>
+  </action>
+  <action name="action_Reset_Surface_View">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/surface_rewind_256px.png</normaloff>:/images/images/surface_rewind_256px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Reset Surface View</string>
+   </property>
+  </action>
+  <action name="action_Curve_Tool">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/curve_tool_icon_64px.png</normaloff>:/images/images/curve_tool_icon_64px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Curve Tool</string>
+   </property>
+   <property name="toolTip">
+    <string>Launch the Curve Tool Sidepanel</string>
+   </property>
+  </action>
+  <action name="actionLoad_Custom_Cerebrum_Mask">
+   <property name="text">
+    <string>Load Custom Cerebrum Mask...</string>
+   </property>
+  </action>
+  <action name="actionClear_mask_below_z_plane">
+   <property name="text">
+    <string>Clear mask below z-plane</string>
+   </property>
+  </action>
+  <action name="actionClear_mask_above_z_plane">
+   <property name="text">
+    <string>Clear mask above z-plane</string>
+   </property>
+  </action>
+  <action name="actionClear_mask_in_front_of_y_plane">
+   <property name="text">
+    <string>Clear mask in front of y-plane</string>
+   </property>
+  </action>
+  <action name="actionClear_mask_in_back_of_y_plane">
+   <property name="text">
+    <string>Clear mask in back of y-plane</string>
+   </property>
+  </action>
+  <action name="actionClear_mask_left_of_x_plane">
+   <property name="text">
+    <string>Clear mask left of x-plane</string>
+   </property>
+  </action>
+  <action name="actionClear_mask_right_of_x_plane">
+   <property name="text">
+    <string>Clear mask right of x-plane</string>
+   </property>
+  </action>
+  <action name="action_Undo_mask_edit">
+   <property name="text">
+    <string>&amp;Undo mask edit</string>
+   </property>
+  </action>
+  <action name="actionOpen_connectivity_matrix">
+   <property name="text">
+    <string>Connectivity Matrix...</string>
+   </property>
+  </action>
+  <action name="action_Popout_Surface_View">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/surface_view_popout_256px.png</normaloff>:/images/images/surface_view_popout_256px.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Popout Surface View</string>
+   </property>
+  </action>
+  <action name="action_Show_Curves_on_Image_Slices">
+   <property name="text">
+    <string>&amp;Show Curves on Image Slices</string>
+   </property>
+  </action>
+  <action name="actionSurface_Volume_Registration">
+   <property name="text">
+    <string>Surface/Volume Registration</string>
+   </property>
+  </action>
+  <action name="action_Reinstall_BrainSuite_Atlas_Files">
+   <property name="text">
+    <string>&amp;Reinstall BrainSuite Atlas Files</string>
+   </property>
+  </action>
+  <action name="action_HARDI_Tool">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/hardi_icon.png</normaloff>:/images/images/hardi_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>HARDI Tool</string>
+   </property>
+  </action>
+  <action name="action_Diffusion_Display_Properties">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/hardi_icon.png</normaloff>:/images/images/hardi_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Diffusion Toolbox</string>
+   </property>
+  </action>
+  <action name="actionODF_Eig">
+   <property name="text">
+    <string>ODF Eig</string>
+   </property>
+  </action>
+  <action name="actionLoad_ODF_Maxima">
+   <property name="text">
+    <string>ODF Maxima</string>
+   </property>
+  </action>
+  <action name="actionSave_Full_Set">
+   <property name="text">
+    <string>Save All Fiber Tracks</string>
+   </property>
+  </action>
+  <action name="actionSave_Subset">
+   <property name="text">
+    <string>Save Filtered Fiber Tracks</string>
+   </property>
+  </action>
+  <action name="actionRedo_mask_edit">
+   <property name="text">
+    <string>Redo mask edit</string>
+   </property>
+  </action>
+  <action name="actionSave_Surface_View_Screenshow">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/images/images/surface_sceen_shot_64px.png</normaloff>:/images/images/surface_sceen_shot_64px.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Surface View Screenshot</string>
+   </property>
+  </action>
+  <action name="actionOpenFileMenu">
+   <property name="text">
+    <string>OpenFileMenu</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionSave_Custom_Sized_Rendering">
+   <property name="text">
+    <string>Save Custom Sized Rendering...</string>
+   </property>
+  </action>
+  <action name="actionSelect_SVReg_Directory">
+   <property name="text">
+    <string>Select SVReg Directory</string>
+   </property>
+  </action>
+  <action name="actionSave_Axial_Image_Screenshot">
+   <property name="text">
+    <string>Save Axial Image Screenshot</string>
+   </property>
+  </action>
+  <action name="actionSave_Coronal_Image_Screenshot">
+   <property name="text">
+    <string>Save Coronal Image Screenshot</string>
+   </property>
+  </action>
+  <action name="actionSave_Sagittal_Image_Screenshot">
+   <property name="text">
+    <string>Save Sagittal Image Screenshot</string>
+   </property>
+  </action>
+  <action name="actionDisable_Mask_Undo_System">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Disable Mask Undo System</string>
+   </property>
+  </action>
+  <action name="actionUse_Native_File_Dialogs">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Use Native File Dialogs</string>
+   </property>
+  </action>
+  <action name="actionAllow_BrainSuite_to_Check_for_Updates">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Allow BrainSuite to Check for Updates</string>
+   </property>
+  </action>
+  <action name="actionSingle_Frame">
+   <property name="text">
+    <string>Single Frame</string>
+   </property>
+  </action>
+  <action name="actionAxial_View">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/ax_slice.png</normaloff>:/images/images/ax_slice.png</iconset>
+   </property>
+   <property name="text">
+    <string>Axial View</string>
+   </property>
+  </action>
+  <action name="actionSagittal_View">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/sag_slice.png</normaloff>:/images/images/sag_slice.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sagittal View</string>
+   </property>
+  </action>
+  <action name="actionCoronal_View">
+   <property name="icon">
+    <iconset resource="brainsuite.qrc">
+     <normaloff>:/images/images/cor_slice.png</normaloff>:/images/images/cor_slice.png</iconset>
+   </property>
+   <property name="text">
+    <string>Coronal View</string>
+   </property>
+  </action>
+  <action name="actionAutozoom_on_Resize">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Autozoom on Resize</string>
+   </property>
+  </action>
+  <action name="action_Spin">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Spin</string>
+   </property>
+  </action>
+  <action name="actionSet_Spin_Parameters">
+   <property name="text">
+    <string>Set Spin Parameters...</string>
+   </property>
+  </action>
+  <action name="action_Electrode_File">
+   <property name="text">
+    <string>&amp;Electrode File...</string>
+   </property>
+  </action>
+  <action name="actionThree_color_mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Three color mode</string>
+   </property>
+   <property name="toolTip">
+    <string>Display three images as red, green, and blue</string>
+   </property>
+  </action>
+  <action name="actionSave_Surfaceview_Screenshot">
+   <property name="text">
+    <string>Save Surfaceview Screenshot</string>
+   </property>
+  </action>
+  <action name="actionSave_Connectivity_Matrix">
+   <property name="text">
+    <string>Save Connectivity Matrix</string>
+   </property>
+  </action>
+  <action name="actionVolume_Info">
+   <property name="text">
+    <string>Volume Info</string>
+   </property>
+  </action>
+  <action name="actionFlat_View">
+   <property name="text">
+    <string>Flat View</string>
+   </property>
+  </action>
+  <action name="actionAdd_Custom_SVReg_Atlas_Directory">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Add Custom SVReg Atlas Directory</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="action_Show_Current_Display_Settings">
+   <property name="text">
+    <string>&amp;Show Current Display Settings</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionTime_series_list">
+   <property name="text">
+    <string>Time series list...</string>
+   </property>
+  </action>
+  <action name="actionBig_Format_Data_Viewer">
+   <property name="text">
+    <string>Big Format Data Viewer</string>
+   </property>
+  </action>
+  <action name="actionTime_Series_Playback">
+   <property name="text">
+    <string>Time Series Playback</string>
+   </property>
+  </action>
+  <action name="actionShow_Labels_as_Outlines">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Labels as Outlines</string>
+   </property>
+  </action>
+  <action name="actionSave_Extraction_Settings">
+   <property name="text">
+    <string>Save Extraction Settings</string>
+   </property>
+  </action>
+  <action name="actionExtraction_Settings">
+   <property name="text">
+    <string>Load Extraction Settings...</string>
+   </property>
+  </action>
+  <action name="actionDisable_Autoscaling">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Disable Autoscaling</string>
+   </property>
+  </action>
+  <action name="actionColormap_LUT">
+   <property name="text">
+    <string>Colormap LUT</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>ConsoleText</class>
+   <extends>QTextEdit</extends>
+   <header location="global">consoletext.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WelcomeSplashPage</class>
+   <extends>QWidget</extends>
+   <header>welcomesplashpage.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="brainsuite.qrc"/>
+ </resources>
+ <connections/>
+</ui>

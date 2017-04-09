@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DelineationToolboxForm</class>
+ <widget class="QWidget" name="DelineationToolboxForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>324</width>
+    <height>580</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_6">
+   <item>
+    <widget class="QToolBox" name="toolBox">
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="maskToolPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>300</width>
+        <height>420</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Mask Tool</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_16">
+           <item>
+            <widget class="QPushButton" name="loadMaskButton">
+             <property name="text">
+              <string>&amp;Open Mask</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="saveMaskButton">
+             <property name="text">
+              <string>&amp;Save Mask</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <item row="0" column="0" colspan="3">
+            <widget class="QLabel" name="label_11">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Mask Drawing</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <widget class="QCheckBox" name="editMaskButton">
+             <property name="text">
+              <string>edit mask</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2" colspan="2">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>brush size</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="QSpinBox" name="brushSizeSpinBox"/>
+           </item>
+           <item row="2" column="0" colspan="4">
+            <widget class="QCheckBox" name="alwaysDrawButton">
+             <property name="text">
+              <string>paint on all mouse clicks</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="QCheckBox" name="use3DBrushCheckBox">
+             <property name="text">
+              <string>3D brush</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QPushButton" name="undoButton">
+             <property name="text">
+              <string>Undo</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="3">
+            <widget class="QPushButton" name="redoButton">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>Redo</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="3">
+            <widget class="QPushButton" name="fillBackgroundButton">
+             <property name="text">
+              <string>Fill Background</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="3" colspan="2">
+            <widget class="QPushButton" name="selectForeground">
+             <property name="text">
+              <string>Sel. Foreground</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="intensityGridLayout">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <item row="3" column="0" colspan="3">
+            <widget class="FloatSlider" name="thresholdSlider">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="thresholdButton">
+             <property name="text">
+              <string>Threshold</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="thresholdEditBox">
+             <property name="maximumSize">
+              <size>
+               <width>80</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="invertButton">
+             <property name="text">
+              <string>Invert</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QCheckBox" name="autoUpdateCheckbox">
+             <property name="text">
+              <string>auto update</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="applyMasktoImage">
+             <property name="text">
+              <string>Apply</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="3">
+            <widget class="QLabel" name="label_14">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Intensity Operations</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="morphGroupGridLayout">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <item row="0" column="0" colspan="3">
+            <widget class="QLabel" name="label_13">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Morphological Operations</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="dilateCubeButton">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dilate with cube&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="brainsuite.qrc">
+               <normaloff>:/images/images/dilate_cube_icon_64px.png</normaloff>:/images/images/dilate_cube_icon_64px.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="dilateDiamondButton">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;dilate with diamond&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="brainsuite.qrc">
+               <normaloff>:/images/images/dilate_diamond_icon_64px.png</normaloff>:/images/images/dilate_diamond_icon_64px.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2" colspan="2">
+            <widget class="QCheckBox" name="conditionalDilationCheckBox">
+             <property name="text">
+              <string>conditional dilation</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="erodeCubeButton">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;erode with cube&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="brainsuite.qrc">
+               <normaloff>:/images/images/erode_cube_icon_x64.png</normaloff>:/images/images/erode_cube_icon_x64.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="erodeDiamondButton">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;erode with diamond&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="brainsuite.qrc">
+               <normaloff>:/images/images/erode_diamond_icon_x64.png</normaloff>:/images/images/erode_diamond_icon_x64.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>lower</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLineEdit" name="lowerCondtionalThresholdEditBox">
+             <property name="maximumSize">
+              <size>
+               <width>60</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>upper</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="QLineEdit" name="upperCondtionalThresholdEditBox">
+             <property name="maximumSize">
+              <size>
+               <width>60</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="surfaceGeneratorGridLayout">
+           <property name="spacing">
+            <number>-1</number>
+           </property>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="quickSurfaceButton">
+             <property name="maximumSize">
+              <size>
+               <width>120</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Make Surface</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="recolorChoiceComboBox"/>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QLabel" name="label_15">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Surface Generator</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>58</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="labelToolPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>300</width>
+        <height>420</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Label Tool</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="4" column="7">
+            <widget class="QLineEdit" name="labelAbbrevEditBox">
+             <property name="maximumSize">
+              <size>
+               <width>60</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0" colspan="4">
+            <widget class="QCheckBox" name="overwriteCurrentLabelsCheckBox">
+             <property name="text">
+              <string>overwrite</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4" colspan="4">
+            <widget class="QComboBox" name="labelSelectionComboBox">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="eyedropButton">
+             <property name="maximumSize">
+              <size>
+               <width>30</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="brainsuite.qrc">
+               <normaloff>:/images/images/grab_label_icon_64px.png</normaloff>:/images/images/grab_label_icon_64px.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2" colspan="2">
+            <widget class="QLineEdit" name="labelIDEditBox">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0" colspan="4">
+            <widget class="QPushButton" name="fill2DButton">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>Fill 2D</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="4">
+            <widget class="QLabel" name="labelDescription">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>description</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="5">
+            <widget class="QPushButton" name="loadLabelDescriptionsButton">
+             <property name="text">
+              <string>Load Desc.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="labelID">
+             <property name="text">
+              <string>ID</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="6" colspan="2">
+            <widget class="QCheckBox" name="use3DLabelBrushCheckBox">
+             <property name="text">
+              <string>3D brush</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="4" colspan="4">
+            <widget class="QLineEdit" name="labelDescriptionEditBox"/>
+           </item>
+           <item row="0" column="6" colspan="2">
+            <widget class="QPushButton" name="saveLabelVolumeButton">
+             <property name="text">
+              <string>S</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="4">
+            <widget class="QCheckBox" name="editLabelButton">
+             <property name="text">
+              <string>edit labels</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="4" colspan="4">
+            <widget class="QComboBox" name="maskModeComboBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="5" colspan="2">
+            <widget class="QLabel" name="labelAbbrev">
+             <property name="text">
+              <string>abbrev.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="4">
+            <widget class="ColorSelectionButton" name="colorSelectionButton">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>color</string>
+             </property>
+             <property name="autoDefault">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="4" colspan="2">
+            <widget class="QPushButton" name="fill3DButton">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>Fill 3D</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0" colspan="4">
+            <widget class="QLabel" name="labelBrushSize">
+             <property name="text">
+              <string>brush size</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="5" colspan="3">
+            <widget class="QPushButton" name="saveLabelDescriptions">
+             <property name="text">
+              <string>Save Desc.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4" colspan="2">
+            <widget class="QPushButton" name="loadLabelVolumeButton">
+             <property name="text">
+              <string>O</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0" colspan="4">
+            <widget class="QLabel" name="maskModeLabel">
+             <property name="maximumSize">
+              <size>
+               <width>80</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>mask mode</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="4" colspan="4">
+            <widget class="QCheckBox" name="alwaysDrawLabelButton">
+             <property name="text">
+              <string>paint on all clicks</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="4" colspan="2">
+            <widget class="QSpinBox" name="labelBrushSizeSpinBox"/>
+           </item>
+           <item row="4" column="0" colspan="4">
+            <widget class="QLabel" name="displayColorLabel">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>display color</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="4">
+            <widget class="QPushButton" name="newLabelVolumeButton">
+             <property name="text">
+              <string>New</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="roiDetailsPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>300</width>
+        <height>420</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>ROI Details</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QPushButton" name="computeVolumesPushButton">
+             <property name="text">
+              <string>Compute Volumes</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="saveROIDetailsTextPushButton">
+             <property name="text">
+              <string>Save as Text</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="roiFilterLineEdit">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="placeholderText">
+            <string>Filter</string>
+           </property>
+           <property name="clearButtonEnabled">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="labelTableWidget">
+           <property name="alternatingRowColors">
+            <bool>true</bool>
+           </property>
+           <property name="selectionBehavior">
+            <enum>QAbstractItemView::SelectRows</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="labelMaskPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>300</width>
+        <height>420</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Label Mask Tool</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="makeMaskFromLabelsPushButton">
+           <property name="text">
+            <string>Make Mask</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="updateMaskLabelListPushButton">
+           <property name="text">
+            <string>Update List</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>13</width>
+             <height>17</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QPushButton" name="makeSurfacesFromLabelsPushButton">
+           <property name="text">
+            <string>Make Surfaces for Each Label</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="updateMaskOnSelectionChangeCheckBox">
+         <property name="text">
+          <string>Update mask when selection changes</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="labelMaskLineEdit">
+         <property name="placeholderText">
+          <string>Filter</string>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="labelMaskTableWidget">
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::ExtendedSelection</enum>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ColorSelectionButton</class>
+   <extends>QPushButton</extends>
+   <header>colorselectionbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FloatSlider</class>
+   <extends>QSlider</extends>
+   <header location="global">floatslider.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="brainsuite.qrc"/>
+ </resources>
+ <connections/>
+</ui>

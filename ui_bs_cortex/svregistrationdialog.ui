@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SVRegistrationDialog</class>
+ <widget class="QDialog" name="SVRegistrationDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>350</width>
+    <height>280</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Surface/Volume Registration</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>331</width>
+     <height>264</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="6" column="0" colspan="2">
+     <widget class="QCheckBox" name="refineSulcalCurvesCheckBox">
+      <property name="text">
+       <string>Refine sulcal curves</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="3">
+     <widget class="QLabel" name="svregDirectoryLabel">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>SVReg Directory</string>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="2">
+     <widget class="QCheckBox" name="surfaceRegistrationOnlyCheckBox">
+      <property name="toolTip">
+       <string>Run only the surface registration programs; skip the volumetric registration.</string>
+      </property>
+      <property name="text">
+       <string>Surface registration only</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QPushButton" name="runStepButton">
+      <property name="text">
+       <string>Step &gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QPushButton" name="applyButton">
+      <property name="text">
+       <string>Apply</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="3">
+     <widget class="QProgressBar" name="progressBar">
+      <property name="value">
+       <number>24</number>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QPushButton" name="previousStepButton">
+      <property name="text">
+       <string>&lt; Back up</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="3">
+     <widget class="QLabel" name="stepNameText">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Next step: flattening</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="2">
+     <widget class="QComboBox" name="labeledAtlasComboBox"/>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QLabel" name="title">
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Surface/Volume Registration</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Labeled Atlas</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0" colspan="3">
+     <widget class="QCheckBox" name="extendLabelsCheckBox">
+      <property name="text">
+       <string>Extend labels within cerebrum mask</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

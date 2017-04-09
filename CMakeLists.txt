@@ -53,6 +53,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Find the QtWidgets library
 find_package(Qt5Widgets)
 find_package(Qt5OpenGL)
+find_package(Qt5Network)
 
 # Use the compile definitions defined in the Qt 5 Widgets module
 add_definitions(${Qt5Widgets_DEFINITIONS})
@@ -81,21 +82,49 @@ file(GLOB Project_ui_files
   ${CMAKE_CURRENT_SOURCE_DIR}/*.ui
 )
 
+file(GLOB Sources_bs_cortex
+	${CMAKE_CURRENT_SOURCE_DIR}/sources_bs_cortex/*.cpp
+)
+
+file(GLOB Headers_bs_cortex
+	${CMAKE_CURRENT_SOURCE_DIR}/headers_bs_cortex/*.h
+)
+
+file(GLOB Ui_bs_cortex
+  ${CMAKE_CURRENT_SOURCE_DIR}/ui_bs_cortex/*.ui
+)
+
 QT5_WRAP_CPP(Project_moc_source_files mainwindow.h)
+QT5_WRAP_CPP(Moc_headers_bs_cortex ${Headers_bs_cortex})
 qt5_add_resources(QRC resources.qrc)
 
 QT5_WRAP_UI(Project_ui_header_files ${Project_ui_files})
+QT5_WRAP_UI(Ui_headers_bs_cortex ${Ui_bs_cortex})
 
 source_group(ui FILES ${Project_ui_files} ${Project_ui_header_files})
+source_group(ui_bs_cortex FILES ${Ui_bs_cortex})
+source_group(ui_headers_bs_cortex FILES ${Ui_headers_bs_cortex})
 source_group(moc FILES ${Project_moc_source_files})
+source_group(moc_headers_bs_cortex FILES ${Moc_headers_bs_cortex})
 
 # Add the include directories for VTK and Qt 5 Widgets module to the compile lines.
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}
 					${CMAKE_CURRENT_BINARY_DIR}
 					${Qt5Widgets_INCLUDE_DIRS}
+					${Qt5Network_INCLUDE_DIRS}
 	                ${VTK_INCLUDE_DIRS}
 					"${VTK_DIR}/include/vtk-${VTK_MAJOR_VERSION}.${VTK_MINOR_VERSION}"
 					${CMAKE_CURRENT_SOURCE_DIR}/plugins/ContourSurface
+					${CMAKE_CURRENT_SOURCE_DIR}/headers_bs_cortex
+					${CMAKE_CURRENT_SOURCE_DIR}/headers_bs_cortex/include
+					${CMAKE_CURRENT_SOURCE_DIR}/headers_bs_cortex/3rdParty/include
+					${CMAKE_CURRENT_SOURCE_DIR}/headers_bs_cortex/surflib
+					${CMAKE_CURRENT_SOURCE_DIR}/headers_bs_cortex/diffusion/include
+					${CMAKE_CURRENT_SOURCE_DIR}/headers_bs_cortex/corticalextraction/include
+					${CMAKE_CURRENT_SOURCE_DIR}/headers_bs_cortex/corticalextraction/include/bfc
+					${CMAKE_CURRENT_SOURCE_DIR}/headers_bs_cortex/corticalextraction/include/bse
+					${CMAKE_CURRENT_SOURCE_DIR}/headers_bs_cortex/corticalextraction/include/pvc
+					${CMAKE_CURRENT_SOURCE_DIR}/headers_bs_cortex/corticalextraction/include/tca
 )
 
 # nifti2dicom_core target
@@ -109,6 +138,10 @@ add_executable(${PROJECT_NAME}
 			   ${Project_moc_source_files}
 			   ${ContourSurface_source_files}
 			   ${ContourSurface_header_files}
+			   ${Sources_bs_cortex}
+			   ${Headers_bs_cortex}
+			   ${Ui_headers_bs_cortex}
+			   ${Moc_headers_bs_cortex}
 	           ${QRC}
 )
 

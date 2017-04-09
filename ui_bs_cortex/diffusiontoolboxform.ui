@@ -1,0 +1,1177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DiffusionToolboxForm</class>
+ <widget class="QWidget" name="DiffusionToolboxForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>320</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_14">
+   <item>
+    <widget class="QToolBox" name="toolBox">
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
+     <widget class="QWidget" name="tensorPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>296</width>
+        <height>412</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <attribute name="label">
+       <string>Diffusion Tensor Display</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QCheckBox" name="showTensorGlyphsCheckBox">
+           <property name="text">
+            <string>show tensor glyphs</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showTensorsUsingColorFA">
+           <property name="text">
+            <string>show tensors with color FA</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="clipTensorGlyphsCheckBox">
+           <property name="text">
+            <string>enable clipping of tensors</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QLabel" name="label_48">
+             <property name="text">
+              <string>glyph quality</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="glyphQualityComboBox"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_13">
+           <item>
+            <widget class="QLabel" name="label_49">
+             <property name="text">
+              <string>ellipse Scale</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="ellipseScaleSlider">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="ellipseScaleText">
+             <property name="minimumSize">
+              <size>
+               <width>24</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>scale</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="0" column="0">
+            <widget class="QCheckBox" name="showDTI_XYPlaneCheckBox">
+             <property name="text">
+              <string>show XY plane</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QCheckBox" name="showDTI_YZPlaneCheckBox">
+             <property name="text">
+              <string>show YZ Plane</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QCheckBox" name="showDTI_XZPlaneCheckBox">
+             <property name="text">
+              <string>show XZ plane</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="hardiPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>296</width>
+        <height>412</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>HARDI ODF Display</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QCheckBox" name="showODFGlyphsCheckBox">
+           <property name="text">
+            <string>show ODF glyphs</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="odfMinMaxCheckBox">
+           <property name="text">
+            <string>show ODFs as min/max</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="clipGlyphsCheckBox">
+           <property name="text">
+            <string>enable clipping of glyphs</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="0" column="1">
+            <widget class="QCheckBox" name="flipXCheckBox">
+             <property name="text">
+              <string>flip X</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QCheckBox" name="showXZPlaneCheckBox">
+             <property name="text">
+              <string>show XZ plane</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QCheckBox" name="showYZPlaneCheckBox">
+             <property name="text">
+              <string>show YZ Plane</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QCheckBox" name="flipZCheckBox">
+             <property name="text">
+              <string>flip Z</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QCheckBox" name="flipYCheckBox">
+             <property name="text">
+              <string>flip Y</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QCheckBox" name="showXYPlaneCheckBox">
+             <property name="text">
+              <string>show XY plane</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <property name="verticalSpacing">
+            <number>-1</number>
+           </property>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_51">
+             <property name="text">
+              <string>sampling</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSlider" name="samplingSlider">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_52">
+             <property name="text">
+              <string>window</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QSlider" name="windowSlider">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="odfScaleLabel">
+             <property name="text">
+              <string>scale</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QSlider" name="odfScaleSlider">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="samplingText">
+             <property name="text">
+              <string>#samps</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="coefficientText">
+             <property name="minimumSize">
+              <size>
+               <width>60</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>#coeff</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="windowSizeText">
+             <property name="text">
+              <string>winsz</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QSlider" name="coefficientSlider">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_50">
+             <property name="text">
+              <string>coefficients</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="odfScaleLineEdit">
+             <property name="maximumSize">
+              <size>
+               <width>51</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tractographyPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>296</width>
+        <height>412</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Tractography</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_9">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QLabel" name="tractographyStatusBox">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Sunken</enum>
+           </property>
+           <property name="text">
+            <string>status</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QPushButton" name="findODFMaximaPushButton">
+             <property name="text">
+              <string>Find Maxima</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="computeTractsPushButton">
+             <property name="text">
+              <string>Compute Tracks</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>compute from </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="computeFromTensorsCheckBox">
+             <property name="text">
+              <string>DTI</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="computeFromODFsCheckBox">
+             <property name="text">
+              <string>ODFs</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="tractSeedingLineEdit">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="2">
+            <widget class="QLineEdit" name="odfSamplingLineEdit">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLineEdit" name="angleThresholdLineEdit">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLabel" name="label_63">
+             <property name="text">
+              <string> seeds/voxel</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="3">
+            <widget class="QLabel" name="label_60">
+             <property name="text">
+              <string>degrees [0,90]</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLabel" name="label_56">
+             <property name="text">
+              <string> in mm</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="stepsizeLineEdit">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="2">
+            <widget class="QLineEdit" name="gfaThresholdLineEdit">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="3">
+            <widget class="QLabel" name="label_68">
+             <property name="text">
+              <string> [0,1]</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLineEdit" name="maxStepsLineEdit">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2">
+            <widget class="QLineEdit" name="faThresholdLineEdit">
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QLabel" name="label_65">
+             <property name="text">
+              <string>ODF sampling</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLabel" name="label_69">
+             <property name="text">
+              <string>FA threshold</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="label_57">
+             <property name="text">
+              <string>max # of steps</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="label_55">
+             <property name="text">
+              <string>stepsize</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="label_54">
+             <property name="text">
+              <string>track seeding</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLabel" name="label_61">
+             <property name="text">
+              <string>GFA/l2 threshold       </string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLabel" name="label_59">
+             <property name="text">
+              <string>angle threshold</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QCheckBox" name="multithreadCheckBox">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>multi-thread</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" colspan="2">
+            <widget class="QCheckBox" name="tractographySortTracksCheckBox">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>sort tracks</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="displayPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>296</width>
+        <height>412</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Track Display</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <property name="horizontalSpacing">
+          <number>3</number>
+         </property>
+         <item row="4" column="4">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>mm</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLineEdit" name="downsampleFactorEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0" colspan="5">
+          <widget class="QCheckBox" name="renderFibersAsTubesCheckBox">
+           <property name="text">
+            <string>render tracks as tubes</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Track Color</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="3">
+          <widget class="QLineEdit" name="lineWidthLineEdit">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="ColorSelectionButton" name="trackDisplayColorSelectionButton">
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>c</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="4">
+          <widget class="QCheckBox" name="enableTrackClippingCheckBox">
+           <property name="text">
+            <string>enable clipping of tracks</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1" colspan="2">
+          <widget class="QSlider" name="tubeRadiusSlider">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="4">
+          <widget class="QLabel" name="label_77">
+           <property name="text">
+            <string>points</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0" colspan="2">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Line Width</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0" colspan="3">
+          <widget class="QCheckBox" name="downsampleTractsCheckBox">
+           <property name="text">
+            <string>downsample tracks to</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2" colspan="2">
+          <widget class="QComboBox" name="trackDisplayColorModelComboBox"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_70">
+           <property name="text">
+            <string>radius</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="5">
+          <widget class="QLabel" name="fiberCountDisplayLabel2">
+           <property name="text">
+            <string>Displaying 0/0 fibers.</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLineEdit" name="tubeRadiusEditBox">
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>16777215</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>86</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="filteringPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>296</width>
+        <height>414</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Track Filtering</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_15">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>3</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="fiberCountDisplayLabel">
+           <property name="text">
+            <string>Display 0/0 fibers.</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_18">
+           <item>
+            <widget class="QLabel" name="label_71">
+             <property name="text">
+              <string>length thresh</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="tractLengthSlider">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="tractLengthEdit">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>70</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_72">
+             <property name="text">
+              <string>mm</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="2" column="0">
+            <widget class="QCheckBox" name="showSphereIn3DViewCheckBox">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>show spheres in 3D view</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <layout class="QHBoxLayout" name="buttonHorizontalLayout">
+             <property name="spacing">
+              <number>-1</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="addSpherePushButton">
+               <property name="toolTip">
+                <string>add ROI at current cursor location</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="brainsuite.qrc">
+                 <normaloff>:/images/images/bst_plus.png</normaloff>:/images/images/bst_plus.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="removeSpherePushButton">
+               <property name="toolTip">
+                <string>remove selected ROI(s)</string>
+               </property>
+               <property name="text">
+                <string>x</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="saveROIsPushButton">
+               <property name="toolTip">
+                <string>save ROI list as XML file</string>
+               </property>
+               <property name="text">
+                <string>S</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="loadROIsPushButton">
+               <property name="toolTip">
+                <string>load ROI list from XML file</string>
+               </property>
+               <property name="statusTip">
+                <string/>
+               </property>
+               <property name="text">
+                <string>L</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item row="6" column="0">
+            <widget class="QTableWidget" name="roiTableWidget"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QCheckBox" name="showSphereAsWireframeCheckBox">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>show ROIs as wireframe</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="roiRadiusSliderLabel">
+               <property name="text">
+                <string>radius</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="sphereRadiusSlider">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <widget class="QCheckBox" name="showSphereInSliceViewCheckBox">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>show spheres in slice view</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QCheckBox" name="excludeLabelListCheckBox">
+             <property name="text">
+              <string>exclude labels (ROI numbers)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QTextEdit" name="excludeLabelsLineEdit"/>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="connectivityPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>296</width>
+        <height>412</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>Connectivity</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_7">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <item>
+          <widget class="QPushButton" name="computeConnectivityPushButton">
+           <property name="text">
+            <string>Compute Connectivity</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <item>
+          <widget class="QCheckBox" name="mergeCortialROIsCheckBox">
+           <property name="maximumSize">
+            <size>
+             <width>20</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>merge GM and WM ROIs in cortical labels</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>334</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ColorSelectionButton</class>
+   <extends>QPushButton</extends>
+   <header>colorselectionbutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="brainsuite.qrc"/>
+ </resources>
+ <connections/>
+</ui>
