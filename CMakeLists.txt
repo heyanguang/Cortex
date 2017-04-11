@@ -131,6 +131,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}
 # add_library(nifti2dicom_core STATIC ${Nifti_core_source_files} ${Nifti_core_header_files})
 # target_link_libraries(nifti2dicom_core LINK_PRIVATE ${ITK_LIBRARIES})
 
+link_directories(../../build_static/Cortex/lib)
+
 add_executable(${PROJECT_NAME}
                ${Project_source_files}
 			   ${Project_header_files}
